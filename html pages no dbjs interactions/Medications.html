@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" a href="style.css" />
+    <meta charset="UTF-8">
+    <title>Medications Page: </title>
+</head>
+
+
+<body>
+    <div id="navbar">
+        <ul>
+            <li class="navbarItem"><a href="index.html" >Index</a></li>
+            <li class="navbarItem"><a href="CustomerCustomerRecords.html">Customer Info</a></li>
+            <li class="navbarItem"><a href="Medications.html"class="active">Medications</a></li>
+            <li class="navbarItem"><a href="DiseasesTreatedSideEffects.html">Diseases Treated & Side Effects</a></li>
+            <li class="navbarItem"><a href="Inventories.html">Inventory</a></li>
+        </ul>
+    </div>
+
+    <div id="projectListWrapperCus">
+        <div id="projectListLeftCus">
+            <li class="project">
+                <br>
+                <br>
+                <div id="headerText1aa">
+                    <p><b> Search DB for Medications:  </b></p>
+                </div>
+                
+                <table id="table">
+                    <caption>Medications Entity Table:</caption>
+                    <br>
+                    -This page holds Information concerning prescribing information for medicines in inventory.
+                    <br>
+                    -Acts as composite to form M:M between CustomerRecords and DiseasesTreated, SideEffects and inventories entities.
+                    <br>
+                    -Will be used as branching point between medicine prescribed to patient and medcine held by inventory.
+                    <div id="projectListMiddle"></div>
+    <!-- placeholder for header to be updated -->
+                            <legend>Search for Medicine:</legend>
+    <!-- placeholder for search function-->
+                             <form method="post" action="/medID_Search">
+                             By Medicine ID Number: <input type="number" name="medID" placeholder="medID Number">
+                             <input type="submit" name="action" value="Search For Medicine">
+                             </form> 
+                        </div>
+                    </div>
+                    <br>
+                    <thead>
+                        <tr>
+                            <th>Medicine ID Number</th>
+                            <th>Medicine Name  </th>
+                            <th>Edit Table</th>
+                            <th>Remove Row </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><em>0</em></td>
+                            <td>-</td>
+                            <td> <input type="button" name="Update" value="Update"/> </td>
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                         
+                        </tr>
+                        <tr>
+                            <td><em>1</em></td>
+                            <td>-</td>
+                            <td> <input type="button" name="Update" value="Update"/> </td>
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                            
+                        </tr>
+                        <tr>
+                            <td><em>2</em></td>
+                            <td>-</td>
+                            <td> <input type="button" name="Update" value="Update"/> </td>
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                          
+                        </tr>
+                        <tr>
+                            <td><em>3</em></td>
+                            <td>-</td>
+                            <td> <input type="button" name="Update" value="Update"/> </td>
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                        </tr>
+                        <tr>
+                            <td><em>4 </em></td>
+                            <td>-</td>
+                            <td> <input type="button" name="Update" value="Update"/> </td>
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                        <tr>
+                            <td><em>5</em></td>
+                            <td>-</td>
+                            <td> <input type="button" name="Update" value="Update"/> </td>
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                             
+                        </tr>
+                        <tr>
+                            <td><em>6</em></td>
+                            <td>-</td>
+                            <td> <input type="button" name="Update" value="Update"/> </td>
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                                
+                                
+                        </tr>
+                        <tr>
+                         <td><em>7</em></td>
+                            <td>-</td>
+                            <td> <input type="button" name="Update" value="Update"/> </td>
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                        </tr>
+                        <tr>
+                                <td><em>8</em></td>
+                                <td>-</td>
+                                <td> <input type="button" name="Update" value="Update"/> </td>
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td
+                                
+                                
+                        </tr>
+                        <tr>
+                                <td><em>9 </em></td>
+                                <td>-</td>
+                                <td> <input type="button" name="Update" value="Update"/> </td>
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td
+                            </tr>
+                            <tr>
+                                <td><em>10 </em></td>
+                                <td>-</td>
+                                <td> <input type="button" name="Update" value="Update"/> </td>
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td
+                            </tr>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- script for removing entirre row -->
+                <script>
+                 function deleteRow(r) 
+                    {
+                       var i = r.parentNode.parentNode.rowIndex;
+                         document.getElementById("customerTable").deleteRow(i);
+                    }
+                </script>
+                <br><br>
+
+
+        </li>
+     </div>
+
+    <div id="projectListRightCus">
+        <li class="project">
+            <br>
+            <br>
+            <div id="headerText1bbbb">
+                <p><b> Add Medications to Inventory DB System:  </b></p>
+            </div>
+            
+                <br>
+                -This page is used to keep  track of medicine inventory available for dispensing to patients.  
+                <br>
+                -INSERT,DELETE and UPDATE functions are planned to be used on this page in order to allow for management of inventory items, including adding new items.
+                    <form>
+                    <fieldset>
+                            <legend> Add/Delete Medcine to Inventory DB Below:</legend>
+                            <form>
+                                <fieldset>
+                                   
+                                    <label for="inventoryID"> Inventory ID Number of Medicine: </label>   <input type="number" name="inventoryID" id="inventoryID"> <br>
+                                 
+                                    <label for="medID"> Medicine ID Number: </label>     <input type="number" name="medID" id="medID"> <br>
+                                
+                                    <label for="stock"> Medicine Stock Total: </label>    <input type="number" name="stock" id="stock"> <br>
+                                  
+                                    <input type="submit" id="querySubmit" value="Add Medication">
+                                </fieldset>
+                    </form>
+                <br>
+                    <table id="table">
+                            <caption>Inventory Entity Table:</caption>
+                       <br> <thead>
+                            <tr>
+                           
+                                <th>Inventory ID Number of Medicine:</th>
+                                <th>Medicine ID Number: </th>
+                                <th>Medicine Stock Total: </th>
+                                <th>Edit Table: </th>
+                                <th>Remove Row: </th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><em>0</em></td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td> <input type="button" name="Update" value="Update"/> </td>
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td
+                               
+                            </tr>
+                            <tr>
+                                <td><em>1</em></td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td> <input type="button" name="Update" value="Update"/> </td>
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td
+                               
+                            </tr>
+                            <tr>
+                                <td><em>2</em></td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td> <input type="button" name="Update" value="Update"/> </td>
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td
+                                
+                            </tr>
+    
+                            <tr>
+                                <td><em>3</em></td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td> <input type="button" name="Update" value="Update"/> </td>
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td
+                                
+                            </tr>
+    
+                            <tr>
+                                <td><em>4 </em></td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td> <input type="button" name="Update" value="Update"/> </td>
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td
+                                
+                            </tr>
+                                <tr>
+                                    <td><em>5</em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td> <input type="button" name="Update" value="Update"/> </td>
+                                    <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td
+                                    
+                                </tr>
+                                <tr>
+                                    <td><em>6</em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td> <input type="button" name="Update" value="Update"/> </td>
+                                    <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td
+                                    
+                                </tr>
+                                <tr>
+                                    <td><em>7</em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td> <input type="button" name="Update" value="Update"/> </td>
+                                    <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td
+                                    
+                                </tr>
+                                <tr>
+                                    <td><em>8</em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td> <input type="button" name="Update" value="Update"/> </td>
+                                    <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td
+                                    
+                                </tr>
+                                <tr>
+                                    <td><em>9 </em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td> <input type="button" name="Update" value="Update"/> </td>
+                                    <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td
+                                    
+                            </tr>
+                            <tr>
+                                <td><em>10 </em></td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td> <input type="button" name="Update" value="Update"/> </td>
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td
+                                
+                        </tr>
+                        </tbody>
+                    </table>
+                    <script>
+                        function deleteRow(r) 
+                           {
+                              var i = r.parentNode.parentNode.rowIndex;
+                                document.getElementById("customerTable").deleteRow(i);
+                           }
+                       </script>
+                       <br><br>
+                </li>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Bootstrap info: -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</html>

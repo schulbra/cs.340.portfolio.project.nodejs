@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" a href="style.css" />
+    <meta charset="UTF-8">
+    <title>Customer & Customer Records</title>
+</head>
+
+<body>
+    <div id="navbar">
+        <ul>
+            <li class="navbarItem"><a href="index.html" >Index</a></li>
+            <li class="navbarItem"><a href="CustomerCustomerRecords.html" class="active">Customer Info</a></li>
+            <li class="navbarItem"><a href="Medications.html">Medications</a></li>
+            <li class="navbarItem"><a href="DiseasesTreatedSideEffects.html">Diseases Treated & Side Effects</a></li>
+            <li class="navbarItem"><a href="Inventories.html">Inventory</a></li>
+        </ul>
+    </div>
+ <br>
+ <br>
+
+
+<div id="projectListWrapperCus">
+    <div id="projectListLeftCus">
+             <div id="headerText1bb">
+                    <p><b> Customer's Details: </b></p>
+             </div>
+                <br>
+                    -This section of the page is used to keep track of various customer values and associated medications. 
+                    <br>
+                    -A customer has a unique ID, a first and last name as well as  medication prescribed to them.
+                    <br>
+                    -INSERT,DELETE and UPDATE functions are planned to be incorporated on this page in <br>
+                     order to  perform changes to entities like "CustomerMedication" and to add/remove customers from DB.
+                     <br>
+                         <form>
+                                <fieldset>
+                                    <legend> Add/Delete Customer to/from DB Below:</legend>
+                                    <label for="fname"> First Name: </label>    <input type="text" name="fname" id="fname"> <br>
+                                 
+                                    <label for="lname"> Last Name: </label>     <input type="text" name="lname" id="lname"> <br>
+                                
+                                    <label for="IdNum"> ID Number: </label>     <input type="number" name="IdNum" id="IdNum"> <br>
+                                  
+                                    <input type="submit" id="querySubmit" value="Add Customer">
+                                </fieldset>
+                          </form>
+
+             <table id="customerTable">
+                <caption>Customer Entity Table:</caption>
+                <br>
+                   <thead>
+                       <tr>
+                           <th>IdNum </th>
+                           <th>FirstName </th>
+                           <th>LastName </th>
+                           <th>Edit Table  </th>
+                           <th>Remove Row</th>
+                       </tr>
+                   </thead>
+
+                   <tbody>
+                       <tr>
+                           <td><em>0</em></td>
+                          
+                           <td>-</td>
+                           <td>-</td> 
+                           <td> <input type="button" name="Update" value="Update"/> </td>
+                           <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>                       </tr>
+                       <tr>
+                           <td><em>1</em></td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td> <input type="button" name="Update" value="Update"/> </td>
+                           <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>                       </tr>
+                       <tr>
+                           <td><em>2</em></td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td> <input type="button" name="Update" value="Update"/> </td>
+                           <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>                       </tr>
+                       <tr>
+                           <td><em>3</em></td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td> <input type="button" name="Update" value="Update"/> </td>
+                           <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>                       </tr>
+                       <tr>
+                           <td><em>4 </em></td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td> <input type="button" name="Update" value="Update"/> </td>
+                           <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>                       </tr>
+                        <tr>
+                               <td><em>5</em></td>
+                               <td>-</td>
+                               <td>-</td> 
+                               <td> <input type="button" name="Update" value="Update"/> </td>
+                               <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>                        </tr>
+                        <tr>
+                               <td><em>6</em></td>
+                               <td>-</td>
+                               <td>-</td>
+                               <td> <input type="button" name="Update" value="Update"/> </td>
+                               <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>                        </tr>
+                        <tr>
+                               <td><em>7</em></td>
+                               <td>-</td>
+                               <td>-</td>
+                               <td> <input type="button" name="Update" value="Update"/> </td>
+                               <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>                        </tr>
+                         <tr>
+                               <td><em>8</em></td>
+                               <td>-</td>
+                               <td>-</td>
+                               <td> <input type="button" name="Update" value="Update"/> </td>
+                               <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>                        </tr>
+                        <tr>
+                               <td><em>9 </em></td>
+                               <td>-</td>
+                               <td>-</td>
+                               <td> <input type="button" name="Update" value="Update"/> </td>
+                               <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                        </tr>
+                        <tr>
+                           <td><em>10 </em></td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td> <input type="button" name="Update" value="Update"/> </td>
+                           <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                       </tr>
+                   </tbody>
+               </table>
+<!-- script for removing entire row -->
+               <script>
+                function deleteRow(r) {
+                  var i = r.parentNode.parentNode.rowIndex;
+                  document.getElementById("customerTable").deleteRow(i);
+                }
+                </script>
+           </li>
+           <br>
+
+<!-- placeholder for header to be updated -->
+          
+             <legend>Search for Customer:</legend>
+         
+<!-- placeholder for search function-->
+             <form method="post" action="/Customers_Search">
+               By Customer ID Number: <input type="number" name="IdNum" placeholder="IdNum">
+               <input type="submit" name="action" value="Search">
+            </form>
+           <br>
+    </div>
+
+ <div id="projectListRightCus">
+        <div id="headerText1bbb">
+               <p><b> Customer's Prescription Records: </b></p>
+        </div>
+                -This section contains information concerning medicines taken by the customer, including: <br>
+                -Number of medicines prescribed to patient, unique to prescribed medicine of customer via "prescriptionCount" <br>
+                -Customers prescribed medicine’s specific dosing criteria via "prescriptionDosage"
+                <br>
+                -Information linking customers idNum to Medication entity. Contains information regarding individual, 
+               
+                customers prescription.
+                <br>
+                    <div>
+                         <legend> Add/Remove Customer's Medication to/from DB Below:</legend>
+                                <div class="containerCus">
+                                <form  method="post" action="/Customers">
+                                     <fieldset>
+                                        <label for="recordID"> Customer Record Table ID Number </label>     <input type="text" name="fname" />                <br>
+                                        <label for="customerID"> Customer ID Number </label>                <input type="number" name="customerID" />         <br>
+                                        <label for="medID"> Medicine ID Number: </label>                    <input type="number" name="medID" />              <br>
+                                        <label for="prescriptionDosage"> Prescription Dosing: </label>      <input type="number" name="prescriptionDosage" /> <br>
+                                        <label for="prescriptionCount"> Prescription Count Total: </label>  <input type="number" name="prescriptionCount" />  <br>
+                                      
+                                        <!-- placeholder for add function-->
+                                        <input type="submit"  name="btn" id="querySubmit" value="Add Customer's Prescription">
+                                        <br> 
+                                    </fieldset>
+                                </form>
+           
+        <table id="table">
+             <caption>CustomerRecords Entity Table:</caption>
+                <thead>
+                    <tr>
+                        <th>Customer Record Table ID Number</th>
+                        <th>Customer ID Number </th>
+                        <th>Medicine ID Number: </th>
+                        <th>Prescription Dosing: </th>
+                        <th>Prescription Count Total: </th>
+                        <th>Edit Table </th>
+                        <th>Remove Row </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><em>0</em></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td> <input type="button" name="Update" value="Update"/> </td>
+                        <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                    </tr>
+                    <tr>
+                        <td><em>1</em></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td> <input type="button" name="Update" value="Update"/> </td>
+                        <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td> 
+                    </tr>
+                    <tr>
+                        <td><em>2</em></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td> <input type="button" name="Update" value="Update"/> </td>
+                        <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                     </tr>
+                    <tr>
+                        <td><em>3</em></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td> <input type="button" name="Update" value="Update"/> </td>
+                        <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                    </tr>
+                    <tr>
+                        <td><em>4 </em></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td> <input type="button" name="Update" value="Update"/> </td>
+                        <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                    </tr>
+
+                    <tr>
+                            <td><em>5</em></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td> <input type="button" name="Update" value="Update"/> </td>
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                         
+                    </tr>
+                    <tr>
+                            <td><em>6</em></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td> <input type="button" name="Update" value="Update"/> </td>
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                            
+                    </tr>
+                    <tr>
+                            <td><em>7</em></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td> <input type="button" name="Update" value="Update"/> </td>
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                    </tr>
+                    <tr>
+                            <td><em>8</em></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        <td>-</td>
+                        <td> <input type="button" name="Update" value="Update"/> </td>
+                        <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                            
+                    </tr>
+                    <tr>
+                            <td><em>9 </em></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td> <input type="button" name="Update" value="Update"/> </td>
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                    </tr>
+                    <tr>
+                            <td><em>10 </em></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td> <input type="button" name="Update" value="Update"/> </td>
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                    </tr>
+                    </tr>
+                </tbody>
+         </table>
+<!-- script for removing entirre row -->
+         <script>
+                function deleteRow(r) {
+                  var i = r.parentNode.parentNode.rowIndex;
+                  document.getElementById("customerTable").deleteRow(i);
+                }
+        </script>
+        </li>
+        <br>
+<!-- placeholder for header to be updated -->
+         <legend>Search for Customer's Prescription:</legend>
+<!-- placeholder for search function-->
+        <form method="post" action="/Customers_Search">
+            By Customer ID Number: <input type="number" name="IdNum" placeholder="IdNum">
+            <input type="submit" name="action" value="Search For Prescription">
+        </form>
+         <br>
+    </div>
+</div>
+    <br>
+</body>
+
+
+
+<!-- Bootstrap info: -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</html>
