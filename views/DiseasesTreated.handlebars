@@ -1,0 +1,177 @@
+
+<title> Diseases </title>
+<H1> Diseases Table Page:</H1>
+
+
+<div id="navbar">
+    <ul>
+        <li class="navbarItem"><a href="index.html">Index</a>
+        <li>
+        <li class="navbarItem"><a href="Customers.html">Customer Info</a></li>
+        <li class="navbarItem"><a href="CustomerRecords.html">Customer Record Info</a></li>
+        <li class="navbarItem"><a href="Medications.html">Medications Info</a></li>
+        <li class="navbarItem"><a href="DiseasesTreated.html" class="active">Diseases Treated</a></li>
+        <li class="navbarItem"><a href="SideEffects.html">Side Effects</a></li>
+        <li class="navbarItem"><a href="Inventories.html">Inventories</a></li>
+    </ul>
+</div>
+<br>
+<br>
+
+<div id="projectListWrapperCustomerRecords">
+    <div id="projectListLeftCustomerRecords">
+        <li class="projectCustomerRecords">
+            <div id="headerText1bbbb2"> <p><b> Diseases: </b></p> </div>
+            <caption>Diseases Entity Table:</caption>
+            -This section contains information concerning diseases treated by medicines prescribed to customer. <br>
+            <br>
+        </li>
+        <legend> View/Search Diseases Entity Table:</legend>
+        <div id="searchForm">
+            <form id="search" action="" method="get">
+                <fieldset>
+                    <form id="showTable">
+                        <table id="tableForm2">
+                            <thead>
+                                <tr>
+                                    <th>Check To Include In Query:</th>
+                                    <th>Property Name:</th>
+                                    <th>Input Value:</th>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox" checked></td>
+                                    <td><label for="id">Table ID:</label></td>
+                                    <td><input type="number" name="id"></td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox" checked></td>
+                                    <td><label for="medID">Medication ID #:</label></td>
+                                    <td><input type="number" name="medID" value=""></td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox" checked></td>
+                                    <td><label for="disease">Disease:</label></td>
+                                    <td><input type="text" name="disease" value=""></td>
+                                </tr>
+                            </thead>
+                        </table>
+                        <input id="searchButton" type="submit" name="search" value="Search">
+
+                        <table id="table">
+                            <thead>
+                                <tr>
+
+                                    <th>Table ID # </th>
+                                    <th>Medicine ID # </th>
+                                    <th>Disease: </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><em>0</em></td>
+
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><em>1</em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><em>2</em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+
+                                <tr>
+                                    <td><em>3</em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+
+                                <tr>
+                                    <td><em>4 </em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+
+                                <tr>
+                                    <td><em>5</em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+
+                                <tr>
+                                    <td><em>6</em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><em>7</em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><em>8</em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><em>9 </em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+
+                                </tr>
+                                <tr>
+                                    <td><em>10 </em></td>
+                                    <td>-</td>
+                                    <td>-</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var tableName = "DiseasesTreated"
+    let fields = [{ input: "text", attrib: "disease" },
+    { input: "text", attrib: "medID" }]
+    var values = [];
+</script>
+
+
+<script type="text/javascript" src="routes/DiseasesTreated.js"></script>
+<script type="text/javascript" src="js/globalFunctions.js"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="main.css">
+<!--    <link rel="stylesheet" href="style.css">    -->
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+<!--
+  <link rel="stylesheet" href="/css/main.css">
+<script src='/public/js/globalFunctions.js'></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="/public/js/handlebars.min.js"></script>
+</html>
+-->

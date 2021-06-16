@@ -1,0 +1,37 @@
+﻿<!doctype html>
+<html>
+    <head>
+    <title>Pharma-Mate: A Precursor to an Automated Pharmacy Experience</title>
+     <meta charset="UTF-8">
+     {{#each css}}
+    <link rel="stylesheet" href="/css/{{this}}">
+    <!--< <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
+  {{/each}}           
+    </head>
+
+    <nav class="navbar navbar-inverse">
+      <ul class="navbar" id="navbar">
+            <li class="navbarItem"><a href="index">Index</a></li>
+            <li class="navbarItem"><a href="Customers">Customers</a></li>
+            <li class="navbarItem"><a href="CustomerRecords">CustomerRecords</a></li>
+            <li class="navbarItem"><a href="Medications">Medications</a></li>
+            <li class="navbarItem"><a href="DiseasesTreated">DiseasesTreated</a></li>
+            <li class="navbarItem"><a href="SideEffects">SideEffects</a></li>
+            <li class="navbarItem"><a href="Inventories" Inventories</a></li>
+      </ul>
+    </nav>
+
+    <body>
+    <!-- Body Content will render here -->
+    {{{body}}}
+        {{#each js}}
+           <script src="/public/js/handlebars.min.js"></script>  
+           <script src='/public/js/globalFunctions.js'></script>
+           <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+           <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        {{/each}}
+    </body>
+</html>

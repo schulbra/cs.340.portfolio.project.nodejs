@@ -1,0 +1,302 @@
+<link rel="stylesheet" href="/css/main.css">
+<title>Medications-Side Effects Page: </title>
+<H1>MMedications-Side Effects Page:</H1>
+{{!-- ------------------------------------------------------------------------------------|
+  -Not finished
+|----------------------------------------------------------------------------------------}}
+
+ <div id="navbar">
+        <ul>
+            <li class="navbarItem"><a href="index.html" >Index</a></li>
+            <li class="navbarItem"><a href="CustomerCustomerRecords.html">Customer Info</a></li>
+
+            <li class="navbarItem"><a href="Medications.html"class="active">Medications Info</a></li>
+
+
+            <li class="navbarItem"><a href="DiseasesTreatedSideEffects.html">Diseases Treated & Side Effects</a></li>
+        </ul>
+ </div>
+ 
+
+<div id="projectListWrapperCustomerRecords">
+    <div id="projectListLeftCustomerRecords">
+        <li class="projectCustomerRecords">
+            <div id="headerText1Inventory">
+                <p><b> Medications-Side Effects Page: </b></p>
+            </div>
+
+            <br>
+            -This page holds Information concerning prescribing information for medicines in inventory.
+            <br>
+            -Acts as composite to form M:M between CustomerRecords and DiseasesTreated, SideEffects and inventories
+            entities.
+            <br>
+            -Will be used as branching point between medicine prescribed to patient and medcine held by inventory.
+            <br>
+        </li>
+
+       <legend> Add Medications to DB Table:</legend>
+       <div id="addCustomerForm">
+        <div id="headerText1aaforms"> <p><b> Add to Entity Table: </b></p> </div>
+         {{!-- in router file else if(req.body.formType == "update"){ --}}
+            <form id="add" action="" method="post">
+             {{!-- change this { --}}
+                <table id="tableForm2">
+                    <tr>
+                        <th>Medications Entity Name:</th>
+                        <th>Medications Entity Value:</th>
+                    </tr>
+
+                    {{!-- Used to update idnum column of various tables in project.---}}
+                    
+                    {{!-- fixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--------}}
+                    <tr id="includeID" style="Display:table-row">
+                        <td><label for="addmedID ">Medication ID #</label></td>
+                        <td><input type="number" name="addmedID"></td>
+                    </tr>
+
+
+
+                     {{!-- fixxxxxxxxxxxxxxxxxxxxxxxx  <tr id="increaseID"------}}
+                    <tr id="increaseID" style="Display:none">
+                         <td><label for="upmedID">Medication ID #</label></td>
+                         <td>
+                           <select id="selID" name="upmedID"> 
+                           {{#each Medications}}
+                           <option value="{{id}}">{{id}}</option>
+                           {{/each}}
+                        </td>
+                    </tr>
+
+         
+                     {{!-- fixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--------}}
+                    <tr>
+                        <td><label for="medName">Medication Name:</label></td>
+                        <td><input id="selmedName" type="text" name="medName"></td>
+                    </tr>
+
+                </table>
+               <input id="addButton" type="submit" name="add" value="Add Medications"><br>
+               <input id="includeFrmType" type="hidden" name="formType" value="add">
+            </form>
+          <div id="removeForm">
+             <div id="headerText1aaforms"> 
+                <p><b> Remove From Entity Table: </b></p> 
+             </div>
+             <form>
+              <table id="tableForm">
+                <form id="showTable">
+                    <table id="table">
+                        <thead>
+                            <tr>
+                                <th>Medications ID #</th>
+                                <th>Medications Name: </th>
+                                <th>Remove Row </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each Medications}}
+                            <tr>
+                                {{!---------- fixxxxxxxxxxxxxxxxxxxxxxxx change val...."------}}
+                                 <td>
+                                    <input class="deleteChkBox" type="checkbox" value={{id}}>
+                                 </td>
+
+                                <td>
+                                     {{id}}
+                                </td>
+
+                                <td id="Medications{{id}}valmedID">{{medID}}<td>
+
+                                <td id="Medications{{id}}valinventoryID">{{inventoryID}}</td>
+
+                                <td id="Medications{{id}}valstock">{{stock}}</td>
+                            </tr>
+                            {{/each}}
+                      </tbody>
+                    </table>
+                </table>
+              </form>
+
+              <form id="delete" method="post">
+                 <input id="delFormType" type="hidden" name="formType" value="delete">
+                 <button id="undoCheckedButton" type="button">Clear Selection</button>
+              </form>
+              <button id="deleteButton" type="button" disabled=true;> Remove Selection </button>
+              <label for="unlockLock"> </label>
+              <button id="undoCheckedButton" type="button">Check to Enable Remove:</button>
+              <input id="unlockLock" type="checkbox">
+
+
+             </form>
+           </div>
+        </div>
+
+            
+       
+       
+        
+   <legend> View/Search Side Effects Entity Table:</legend>            
+   <div id="searchForm">
+     <form id="search" action="" method="get">
+      <fieldset>
+         <form id="showTable">
+          <table id="tableForm2">
+            <thead>
+             <tr>
+               <th>Check To Include In Query:</th>
+               <th>Property Name:</th>
+               <th>Input Value:</th>
+             </tr>
+
+             <tr>
+                  <td><input type="checkbox" checked></td>
+                  <td><label for="id">Table ID:</label></td>
+                  <td><input type="number" name="id"></td>
+             </tr>
+
+             <tr>
+                   <td><input type="checkbox" checked></td>
+                   <td><label for="medID">Medication ID #:</label></td>
+                   <td><input type="number" name="medID" value=""></td>
+             </tr>
+
+             <tr>
+                <td><input type="checkbox" checked></td>
+                <td><label for="sideEffect">Side Effect:</label></td>
+                <td><input type="text" name="medID" value=""></td>
+             </tr>
+            </thead>
+           </table> 
+           <input id="searchButton" type="submit" name="search" value="Search">
+
+           <table id="table">
+             <thead>
+                    <tr>
+                   
+                        <th>Table ID # </th>
+                        <th>Medicine ID # </th>
+                        <th>Side Effect: </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><em>0</em></td>
+                       
+                        <td>-</td>
+                        <td>-</td> 
+                     </tr>
+                    <tr>
+                        <td><em>1</em></td>
+                        <td>-</td>
+                        <td>-</td>
+                     </tr>
+                    <tr>
+                        <td><em>2</em></td>
+                        <td>-</td>
+                        <td>-</td>
+                     </tr>
+
+                      <tr>
+                        <td><em>3</em></td>
+                        <td>-</td>
+                        <td>-</td>
+                     </tr>
+
+                      <tr>
+                        <td><em>4 </em></td>
+                        <td>-</td>
+                        <td>-</td>
+                     </tr>
+
+                     <tr>
+                            <td><em>5</em></td>
+                            <td>-</td>
+                            <td>-</td>
+                             </tr>
+
+                     <tr>
+                            <td><em>6</em></td>
+                            <td>-</td>
+                            <td>-</td>
+                     </tr>
+                     <tr>
+                            <td><em>7</em></td>
+                            <td>-</td>
+                            <td>-</td>
+                      </tr>
+                            <tr>
+                            <td><em>8</em></td>
+                            <td>-</td>
+                            <td>-</td>
+                           </tr>
+                     <tr>
+                            <td><em>9 </em></td>
+                            <td>-</td>
+                            <td>-</td>
+                           
+                     </tr>
+                     <tr>
+                        <td><em>10 </em></td>
+                        <td>-</td>
+                        <td>-</td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+          </form>
+       </fieldset>
+     </form>
+    </div>
+   </div>
+  </div>
+</div>
+
+<script>
+    var tableName = "Medications"
+    let fields =[{input:"text", attrib:"medName"}];
+    var values=[];
+</script>
+
+
+<script type="text/javascript" src="routes/Medications.js"></script>
+<script type="text/javascript" src="js/globalFunctions.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="main.css">
+<!--    <link rel="stylesheet" href="style.css">    -->
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> 
+
+
+
+</html>
+
+
+
+<!--
+  <link rel="stylesheet" href="/css/main.css">
+<script src='/public/js/globalFunctions.js'></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="/public/js/handlebars.min.js"></script>
+</html>
+
+
+///////
+from before:
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+-->

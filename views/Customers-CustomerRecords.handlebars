@@ -1,0 +1,627 @@
+<link rel="stylesheet" href="/css/main.css">
+<title>Customers-CustomerRecords</title>
+  <H1>Customers-CustomerRecords:</H1> 
+
+
+
+<div id="navbar">
+    <ul>
+        <li class="navbarItem"><a href="index.html" class="active">Index</a><li>
+        <li class="navbarItem"><a href="Customers.html">Customer Info</a></li>
+        <li class="navbarItem"><a href="CustomerRecords.html">Customer Info</a></li>
+        <li class="navbarItem"><a href="Medications.html">Medications Info</a></li>
+        <li class="navbarItem"><a href="DiseasesTreated.html">Diseases Treated</a></li>
+        <li class="navbarItem"><a href="SideEffects.html">Side Effects</a></li>
+        <li class="navbarItem"><a href="Inventories.html" >Inventories</a></li>
+    </ul>
+</div>
+<br>
+<br>
+
+<div id="projectListWrapperCustomerRecords">
+ <div id="projectListLeftCustomerRecords">
+       <li class="projectCustomerRecords">
+       <div id="headerText1bbbb2"> 
+        <p><b> Customers-CustomerRecords Page: </b><p>
+       </div>
+                -This section contains information concerning medicines taken by the customer, including: <br>
+                -Number of medicines prescribed to patient, unique to prescribed medicine of customer via "prescriptionCount" <br>
+                -Customers prescribed medicine’s specific dosing criteria via "prescriptionDosage"
+                <br>
+                -Information linking customers idNum to Medication entity. Contains information regarding individual, 
+               
+                customers prescription.
+                <br>
+       </li>
+       
+       
+       <legend> Add Customer Records to DB Table:</legend>
+       <div id="addCustomerForm">
+        <div id="headerText1aaforms"> <p><b> Add to Entity Table: </b></p> </div>
+       
+            <form id="add" action="" method="post">
+             
+                <table id="tableForm2">
+                    <tr>
+                        <th>Tables Property Name:</th>
+                        <th>Tables Property Value: </th>
+                    </tr>
+
+                    <tr id="includeID" style="Display:table-row">
+                        <td><label for="addrecordID ">Table ID #</label></td>
+                        <td><input type="number" name="addrecordID"></td>
+                    </tr>
+                    
+                    <tr id="increaseID" style="Display:none">
+                         <td><label for="uprecordID">Table ID #</label></td>
+                         <td>
+                           <select id="selID" name="uprecordID"> 
+                           {{#each CustomerRecords}}
+                           <option value="{{id}}">{{id}}</option>
+                           {{/each}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="customersID">Customer:</label></td>
+                        <td>
+                          <select id="selcustomersID" name="customersID"> 
+                          {{#each Customers}}
+                           <option value="{{customerID}}">{{fname}}</option>
+                          {{/each}}
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><label for="medID">Medications:</label></td>
+                        <td>
+                          <select id="selmedID" name="medID"> 
+                          {{#each Medications}}
+                           <option value="{{medID}}">{{medName}}</option>
+                          {{/each}}
+                        </td>
+                    </tr>
+
+                   <tr>
+                       <td><label for="prescriptionCount">Prescription Total:</label></td>
+                       <td><input id="selprescriptionCount" type="text" name="prescriptionCount"></td>
+                    </tr>
+
+                    <tr>
+                       <td><label for="prescriptionDosage">Prescription Dosing:</label></td>
+                       <td><input id="selprescriptionDosage" type="text" name="prescriptionDosage"></td>
+                    </tr>
+
+                </table>
+               <input id="addButton" type="submit" name="add" value="Add Customer Record"><br>
+               <input id="includeFrmType" type="hidden" name="formType" value="add">
+            </form>
+           <div id="removeForm">
+             <div id="headerText1aaforms"> 
+                <p><b> Remove From Entity Table: </b></p> 
+             </div>
+             <form>
+              <table id="tableForm">
+                <form id="showTable">
+                  <table id="table">
+                   <thead>
+                       <th>Select</th>
+                       <th>Table ID #</th>
+                        <th>Customers ID #</th>
+                        <th>Customers Medication ID #</th>
+                       <th>Prescription Total:</th>
+                       <th>Prescription Dosing:</th>
+                  </thead>
+                  <tbody>
+                     {{#each CustomerRecords}}
+                     <tr>
+                       <td><input class="deleteChkBox" type="checkbox" value={{recordID}}>         </td>
+
+                       <td>{{recordID}}     </td>
+
+                       <td id="CustomerRecords{{recordID}}valcustomersID">{{customersID}}       </td>
+
+
+                       <td id="CustomerRecords{{recordID}}valmedID">{{medID}}                    </td>
+                      <td id="CustomerRecords{{recordID}}valprescriptionCount">{{prescriptionCount}}  </td>
+
+                      <td id="CustomerRecords{{recordID}}valprescriptionDosage">{{prescriptionDosage}}</td>
+
+                     </tr>
+                    {{/each}}
+                  </tbody>
+                 </table>
+                </table>
+               </form>
+
+              <form id="delete" method="post">
+                 <input id="delFormType" type="hidden" name="formType" value="delete">
+                 <button id="undoCheckedButton" type="button">Clear Selection</button>
+              </form>
+              <button id="deleteButton" type="button" disabled=true;> Remove Selection </button>
+              <label for="unlockLock"> </label>
+              <button id="undoCheckedButton" type="button">Check to Enable Remove:</button>
+              <input id="unlockLock" type="checkbox">
+
+
+             </form>
+           </div>
+        </div>
+
+       <legend> View Customer Records Below:</legend>
+       <div id="searchForm">
+         <div class="containerCus"></div>
+ 
+          <table id="table">
+             <caption>CustomerRecords Entity Table:</caption>
+                <thead>
+                    <tr>
+                        <th>Table ID #    </th>
+                        <th>Customer ID # </th>
+                        <th>Medicine ID # </th>
+                        <th>Prescription Dosing: </th>
+                        <th>Prescription Count Total: </th>
+                    
+                
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><em>0</em></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    <!-- placeholder for search function-->                        
+                        <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                    </tr>
+                    <tr>
+                        <td><em>1</em></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <!-- placeholder for search function--> 
+                        <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td> 
+                    </tr>
+                    <tr>
+                        <td><em>2</em></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <!-- placeholder for search function--> 
+                        <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                     </tr>
+                    <tr>
+                        <td><em>3</em></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <!-- placeholder for search function--> 
+                        <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                    </tr>
+                    <tr>
+                        <td><em>4 </em></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <!-- placeholder for search function--> 
+                        <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                    </tr>
+
+                    <tr>
+                            <td><em>5</em></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <!-- placeholder for search function--> 
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                         
+                    </tr>
+                    <tr>
+                            <td><em>6</em></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <!-- placeholder for search function--> 
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                            
+                    </tr>
+                    <tr>
+                            <td><em>7</em></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <!-- placeholder for search function--> 
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                    </tr>
+                    <tr>
+                            <td><em>8</em></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        <td>-</td>
+                        <!-- placeholder for search function--> 
+                        <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                            
+                    </tr>
+                    <tr>
+                            <td><em>9 </em></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <!-- placeholder for search function--> 
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                    </tr>
+                    <tr>
+                            <td><em>10 </em></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <!-- placeholder for search function--> 
+                            <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)"/> </td>
+                    </tr>
+                    </tr>
+                </tbody>
+             </table>
+        </form>
+      </div>
+      <br> <br>
+     
+     <legend>Search Customer Records DB:</legend>
+     <div id="searchForm">
+      <form id="search" action="" method="get">
+         <fieldset>
+            <input id="addCustomerForm" type="hidden" name="formType" value="add">
+            <br>
+
+            -Check to search by associated Customer Record property: 
+            <br>
+
+           <table>
+             <tr>
+               <th>Include:</th>
+               <th>Property:</th>
+               <th>Input Value:</th>
+             </tr>
+
+             <tr>
+              <td><input type="checkbox" checked></td>
+              <td><label for="id">Table ID:</label></td>
+              <td><input type="number" name="id"></td>
+             </tr>
+
+             <tr>
+              <td><input type="checkbox" checked></td>
+              <td><label for="customerID">Customer ID:</label></td>
+              <td><input type="number" name="customerID" value=""></td>
+             </tr>
+
+             <tr>
+             <td><input type="checkbox" checked></td>
+              <td><label for="medID">Medication ID:</label></td>
+              <td><input type="text" name="medID" value=""></td>
+             </tr>
+
+             <tr>
+              <td><input type="checkbox" checked></td>
+             <td><label for="prescriptionCount">Prescription Count:</label></td>
+              <td><input type="text" name="prescriptionCount" value=""></td>
+             </tr>
+
+             <tr>
+              <td><input type="checkbox" checked></td>
+              <td><label for="prescriptionDosage">Prescription Count:</label></td>
+              <td><input type="text" name="prescriptionDosage" value=""></td>
+             </tr>
+           </table>
+                        <input id="searchButton" type="submit" name="search" value="Search Customer Records DB">
+          </fieldset>
+         </form>
+        </div>
+
+       <legend> Add Customers to DB Table:</legend>
+       <div id="addCustomerForm">
+        <div id="headerText1aaforms"> <p><b> Add to Entity Table: </b></p> </div>
+      
+            <form id="add" action="" method="post">
+           
+                <table id="tableForm2">
+                    <tr>
+                        <th>Customers Entity Properties:</th>
+                        <th>Customers Property Values:</th>
+                    </tr>
+
+
+                    <tr id="includeID" style="Display:table-row">
+                        <td><label for="addcustomerID ">Customer ID #</label></td>
+                        <td><input type="number" name="addcustomerID"></td>
+                    </tr>
+
+
+
+           
+                    <tr id="increaseID" style="Display:none">
+                         <td><label for="upcustomerID">Customer ID #</label></td>
+                         <td>
+                           <select id="selID" name="upcustomerID"> 
+                           {{#each Customers}}
+                           <option value="{{id}}">{{id}}</option>
+                           {{/each}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="fname">Customers First Name:</label></td>
+                        <td><input id="selfname" type="text" name="fname"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="lname">Customers Last Name:</label></td>
+                        <td><input id="sellname" type="text" name="lname"></td>
+                    </tr>
+
+                </table>
+               <input id="addButton" type="submit" name="add" value="Add Customers"><br>
+               <input id="includeFrmType" type="hidden" name="formType" value="add">
+            </form>
+           <div id="removeForm">
+             <div id="headerText1aaforms"> 
+                <p><b> Remove From Entity Table: </b></p> 
+             </div>
+             <form>
+              <table id="tableForm">
+                <form id="showTable">
+                    <table id="table">
+                        <thead>
+                            <tr>
+                              <th>Select</th>
+                              <th>Table ID #</th>
+                              <th>Customers ID #</th>
+                             
+                              <th>Customers First Name: </th>
+                              <th>Customers Last Name:</th>   
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each Customers}}
+
+                            <tr>
+
+                             <td> <input class="deleteChkBox" type="checkbox" value={{customerID}}>  </td>
+
+                             <td> {{customerID}}    </td>
+
+                             <td id="Customers{{customerID}}valcustomerID">{{customerID}}              </td>
+
+                             <td id="Customers{{customerID}}valfname">{{fname}}</td>
+
+                             <td id="Customers{{customerID}}vallname">{{lname}}</td>
+
+                            </tr>
+                            {{/each}}
+                         </tbody>
+                     </table>
+                </table>
+              </form>
+
+              <form id="delete" method="post">
+                 <input id="delFormType" type="hidden" name="formType" value="delete">
+                 <button id="undoCheckedButton" type="button">Clear Selection</button>
+              </form>
+              <button id="deleteButton" type="button" disabled=true;> Remove Selection </button>
+              <label for="unlockLock"> </label>
+              <button id="undoCheckedButton" type="button">Check to Enable Remove:</button>
+              <input id="unlockLock" type="checkbox">
+
+
+             </form>
+           </div>
+        </div>
+                
+       <legend> View/Search Customers Entity Table:</legend>
+       <div id="searchmedForm">
+        <div id="headerText1aaforms">
+        <p><b> View Entity Table: </b></p>
+        </div>
+            <fieldset>
+                <form>
+                    <table id="table">
+                        <thead>
+                            <tr>
+                            <tr>
+                                <th>Customers Table ID #</th>
+                                <th>Customers First Name: </th>
+                                <th>Customers Last Name:</th>
+                                <th>Remove Row </th>
+                            </tr>
+                        </thead>
+        
+                        <tbody>
+                            <tr>
+                                <td><em>0</em></td>
+                                 <td>-</td>
+                                <td>-</td>
+                                <!-- placeholder for row -->
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)" /> </td>
+        
+                            </tr>
+                            <tr>
+                                <td><em>1</em></td>
+                                <td>-</td>
+                                 <td>-</td>
+                                <!-- placeholder for row -->
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)" /> </td>
+        
+                            </tr>
+                            <tr>
+                                <td><em>2</em></td>
+                                <td>-</td>
+                                 <td>-</td>
+                                <!-- placeholder for row -->
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)" /> </td>
+        
+                            </tr>
+                            <tr>
+                                <td><em>3</em></td>
+                                <td>-</td>
+                                 <td>-</td>
+                                <!-- placeholder for row -->
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)" /> </td>
+                            </tr>
+                            <tr>
+                                <td><em>4 </em></td>
+                                <td>-</td>
+                                 <td>-</td>
+                                <!-- placeholder for row -->
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)" /> </td>
+                            <tr>
+                                <td><em>5</em></td>
+                                <td>-</td>
+                                 <td>-</td>
+                                <!-- placeholder for row -->
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)" /> </td>
+        
+                            </tr>
+                            <tr>
+                                <td><em>6</em></td>
+                                <td>-</td>
+                                 <td>-</td>
+                                <!-- placeholder for row -->
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)" /> </td>
+        
+        
+                            </tr>
+                            <tr>
+                                <td><em>7</em></td>
+                                <td>-</td>
+                                 <td>-</td>
+                                <!-- placeholder for row -->
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)" /> </td>
+                            </tr>
+                            <tr>
+                                <td><em>8</em></td>
+                                <td>-</td>
+                                 <td>-</td>
+                                <!-- placeholder for row -->
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)" /> </td>
+                            </tr>
+                            <tr>
+                                <td><em>9 </em></td>
+                                <td>-</td>
+                                 <td>-</td>
+                                <!-- placeholder for row -->
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)" /> </td>
+                            </tr>
+                            <tr>
+                                <td><em>10 </em></td>
+                                <td>-</td>
+                                 <td>-</td>
+                                <!-- placeholder for row -->
+                                <td> <input type="button" name="Delete" value="Delete" onclick="deleteRow(this)" /> </td>
+                            </tr>
+                            </tr>
+                        </tbody>
+                      </table>
+                      <script>
+                        function deleteRow(r) {
+                            var i = r.parentNode.parentNode.rowIndex;
+                            document.getElementById("CustomersTable").deleteRow(i);
+                        }
+                      </script>
+                </form>
+          </fieldset>
+
+       
+          <div id="searchForm">
+            <div id="headerText1aaforms"> <p><b> Search Entity Table: </b></p>
+            </div>
+             <fieldset>
+           
+                <form id="search" action="" method="get">
+
+                    <table id="tableForm">
+                       <tr>
+                        <th>Check to include in Query: </th>
+                        <th>Property Value:</th>
+                        <th>Property Name:</th>
+                       </tr>
+        
+                        <tr>
+                            <td><input type="checkbox" checked></td>
+                            <td><label for="id">ID</label></td>
+                            <td><input type="number" name="id"></td>
+                        </tr>
+        
+                        <tr>
+                            <td><input type="checkbox" checked></td>
+                            <td><label for="customerID">Customer ID #</label></td>
+                            <td><input type="number" name="customerID" value=""></td>
+                        </tr>
+        
+                        <tr>
+                            <td><input type="checkbox" checked></td>
+                            <td><label for="fname">First Name:</label></td>
+                            <td><input type="text" name="fname" value=""></td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="checkbox" checked></td>
+                            <td><label for="lname">Last Name:</label></td>
+                            <td><input type="text" name="lname" value=""></td>
+                        </tr>
+
+
+                    </table>
+                     <input id="searchButton" type="submit" name="search" value="Submit"><br>
+                </form>
+             </fieldset>
+          </div>
+     </div>
+  </div>
+ </div>
+
+<script>
+    var tableName = "CustomerRecords";
+     let fields = [{input:"select", attrib:"customersID"}, 
+                  {input:"select", attrib:"medID"},
+                  {input:"text", attrib:"prescriptionCount"},
+                  {input:"text", attrib:"prescriptionDosage"}];
+    var values=[];
+</script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="main.css">
+<!--    <link rel="stylesheet" href="style.css">    -->
+<!-- jQuery library -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+<!--
+  <link rel="stylesheet" href="/css/main.css">
+<script src='/public/js/globalFunctions.js'></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="/public/js/handlebars.min.js"></script>
+</html>
+-->
