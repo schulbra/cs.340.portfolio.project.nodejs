@@ -1,0 +1,25 @@
+{
+  "name": "cs.340.portfolio.project.nodejs",
+  "version": "1.0.0",
+  "description": "This is the CS340 Project that was submitted at the end of the course.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schulbra/cs.340.portfolio.project.nodejs.git"
+  },
+  "author": "Brandon Schultz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/schulbra/cs.340.portfolio.project.nodejs/issues"
+  },
+  "homepage": "https://github.com/schulbra/cs.340.portfolio.project.nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "forever": "^3.0.4",
+    "mysql": "^2.18.1"
+  }
+}
